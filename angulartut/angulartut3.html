@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+ <html ng-app="app3" lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- This will get rid of the expression to render with the curly brackets -->
+   <style>
+     [ng\:cloak], [ng-cloak], .ng-cloak {
+       display: none;
+     }
+   </style>
+ </head>
+ <body>
+
+  <div id="groceryList" ng-controller="gListCtrl">
+
+    <h3 class="ListTitle">{{groceries.length}} Groceries to Get</h3>
+
+    <!-- We are binding whatever will render to span with ng-bind -->
+    <h3 class="ListTitle">
+      <span ng-bind="groceries.length"></span>
+      Groceries to Get
+    </h3>
+
+    <ol style="margin: 0 0 -15px 0;">
+      <li>{{groceries[0].item}}</li>
+    </ol>
+
+    <!-- You can skip the very first item -->
+    <ol start="2">
+      <!-- pretty much a for in loop Also the index > 0 will skip the 0 indeces -->
+      <li ng-repeat="grocery in groceries" ng-if="$index > 0">
+      {{grocery.item}} {{$index}}
+      </li>
+    </ol>
+
+    <table>
+      <tr ng-repeat-start="grocery in groceries">
+        <td>
+          {{grocery.item}}
+        </td>
+      <tr ng-repeat-end>
+        <td>
+          {{grocery.purchased}}
+        </td>
+      </tr>
+    </table>
+
+    <label>Change 1st Item : </label>
+    <input ng-model="groceries[0].item">
+
+
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="js/exam3.js"></script>
+ </body>
+ </html>
