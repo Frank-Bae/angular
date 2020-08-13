@@ -1,56 +1,70 @@
-<!DOCTYPE html>
-<!-- I suppose this would be similar to state component. Also the ng-app lets angular know this html will be using it -->
-<html ng-app="app1" ng-init="person = {fName: 'Frank', lName: 'Bae'}; capitals=[{city: 'Downey', state: 'California'}, {city: 'Houston', state: 'Texas'}, {city: 'Seattle', state: 'Washington'}]" lang="en">
+<!doctype html>
+
+<!-- Define the ng-app parameter in the root element so AngularJS
+knows where to begin compiling. app1 is the module name and is referenced
+in the JS file we will create -->
+
+<!-- ng-init is a directive that initializes application data by assigning
+variable values -->
+<html ng-app="app1"
+  ng-init="person = {fName: 'Derek', lName: 'Banas'};
+  capitals = [{city: 'Montgomery', state: 'Alabama'}, {city: 'Juneau', state: 'Alaska'}, {city: 'Phoenix', state: 'Arizona'}]">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <title>AngularJS Tutorial</title>
 </head>
+
 <body>
+
+  <!-- Adds a controller that the Angular module will control.
+    The view is the div element and all that it contains. The $scope
+    component is used to provide data to the view. -->
   <div ng-controller="ctrl1">
-
     <span>Values:</span>
-    <br>
-    <input type="text" ng-model="first" />
-    <br>
-    <input type="text" ng-model="second" />
-    <br>
-    <button ng-click="updateValue()">Sum</button>
 
-    <!-- When the button is clicked, it will updateValue from the JS function -->
+    <!-- Define 2 elements that will be bound to the first and
+      second values in the scope using the ng-model directive. If
+      either value changes here it will change in the scope and
+      vice versa -->
+    <input type="text" ng-model="first" />
+    <input type="text" ng-model="second" />
+
+    <!-- Bind a click on this button to the function updateValue
+      using ng-click -->
+    <button ng-click="updateValue()">Sum</button>
+    <br><br>
+
+    <!-- Displays the Scope value of calculation in the expression-->
     {{calculation}}
 
+    <!-- You can perform calculations in expressions -->
     <p>5 + 5 = {{5+5}}</p>
 
-    <!-- This is getting data based on what the input is in ng-model -->
+    <!-- Expressions bind data to HTML as well -->
     <p>Your first value is {{first}}</p>
 
-    <!-- Just another way to bind the ng -->
+    <!-- You can do the same with ng-bind -->
     <p>Your second value is
       <span data-ng-bind="second"></span>
     </p>
 
-    <!-- You can get the init data from ng-init and render that  -->
+    <!-- Strings can be built in expressions -->
     <p>{{person.fName + " " + person.lName}} you entered {{first + " and " + second}}</p>
 
+    <!-- ng-repeat cycles through a collection -->
     <ul>
       <li ng-repeat="capital in capitals">
-        {{'City: ' + capital.city + ', State: ' + capital.state}}
+        {{ 'City: ' + capital.city + ', State: ' + capital.state}}
       </li>
     </ul>
 
   </div>
 
-    <div class="move">
-      <label>Name:</label>
-      <input type="text" ng-model="test" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{test}}!</h1>
-    </div>
-
-
+  <!-- Load the AngularJS library -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+  <!-- Load the JS Module -->
   <script src="js/exam1.js"></script>
 </body>
+
 </html>
