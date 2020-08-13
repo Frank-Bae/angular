@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="app1" ng-init="person = {fName: 'frank', lName: 'bae'}; capitals=[{city: 'downey', state: 'California'}, {city: 'Houston', state: 'Texas'}, {city: 'Seattle', state: 'Washington'}]" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div ng-controller="ctrl1">
+
+    <span>Values:</span>
+    <br>
+    <input type="text" ng-model="first" />
+    <br>
+    <input type="text" ng-model="second" />
+    <br>
+    <button ng-click="updateValue()">Sum</button>
+
+    <!-- When the button is clicked, it will updateValue from the JS function -->
+    {{calculation}}
+
+    <p>5 + 5 = {{5+5}}</p>
+
+    <!-- This is getting data based on what the input is in ng-model -->
+    <p>Your first value is {{second}}</p>
+
+
+  </div>
+
+    <div class="move">
+      <label>Name:</label>
+      <input type="text" ng-model="test" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{test}}!</h1>
+    </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="js/exam1.js"></script>
+</body>
+</html>
