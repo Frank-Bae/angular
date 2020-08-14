@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  // This will be outputted to the clickCounter interpolation as strictly 0
+  clickCounter: number = 0;
+  name: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // This is a method that will conduct +1 when clicked to clickCounter
+  countClick(){
+    this.clickCounter += 1;
   }
 
 }

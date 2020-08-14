@@ -3,5 +3,14 @@
 <h1>Welcome!</h1>
 
 <div class="play-container">
+  <!-- CAll this method when this element is clicked -->
   <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
+</div>
+
+
+<div class="play-container">
+  <p>
+    <input type="text" [(ngModel)]="name"><br>
+    <strong>You said: </strong> {{ name }}
+  </p>
 </div>

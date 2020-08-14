@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component'
 // the path that has an empty string will be the one that loads first
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  //The path name has to match the folder component name
   { path: 'list', component: ListComponent },
 ];
 
