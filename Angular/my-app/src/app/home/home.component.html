@@ -2,15 +2,56 @@
 
 <h1>Welcome!</h1>
 
+<!-- one way data binding -->
 <div class="play-container">
   <!-- CAll this method when this element is clicked -->
   <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
 </div>
 
-
+<!-- 2 way data binding by both setting and retrieving property to and from component -->
 <div class="play-container">
   <p>
     <input type="text" [(ngModel)]="name"><br>
     <strong>You said: </strong> {{ name }}
   </p>
+</div>
+
+<!-- You can make conditional with styling such as to toggle -->
+<!-- [style.background-color]="clickCounter > 4 ? 'lightblue' : 'lightgray'" -->
+
+<!-- Allows you have multiple style. This is called style binding -->
+<div class="play-container" [ngStyle]="{
+'background-color': clickCounter > 4 ? 'lightblue' : 'lightgray',
+'border': clickCounter > 4 ? '4px solid black' : 'none'
+}">
+  <!-- If the ngIf results to true, it will show whatever is in this template -->
+  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+    <p>The click counter <strong>Is greater</strong> than 4.</p>
+  </ng-template>
+  <!-- If it is not true, it will render this template -->
+  <ng-template #none>
+    <p>The click counter is <strong>not greater</strong> than 4</p>
+  </ng-template>
+</div>
+
+
+<!-- This is class binding where it will add in a class so the class "active"
+will activate once the condition is true-->
+<!-- <div class="play-container" [class.active]="clickCounter > 4">
+  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+    <p>The click counter <strong>Is greater</strong> than 4.</p>
+  </ng-template>
+  <ng-template #none>
+    <p>The click counter is <strong>not greater</strong> than 4</p>
+  </ng-template>
+</div> -->
+
+<!-- This is multiple class binding -->
+<div class="play-container" [ngClass]="setClasses()">
+  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+    <p>The click counter <strong>Is greater</strong> than 4.</p>
+  </ng-template>
+  <ng-template #none>
+    <p>The click counter is <strong>not greater</strong> than 4</p>
+  </ng-template>
 </div>
