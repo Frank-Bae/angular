@@ -70,3 +70,49 @@ a {
 .dasher a {
   color: red;
 }
+
+.ad-1{
+  margin-top: 20px;
+}
+.ad-1-image{
+  width: 60%;
+}
+.ad-1 .row{
+  display: flex;
+  justify-content: space-around;
+}
+.ad-1-text {
+  text-align: center;
+}
+.ad-1-text p{
+width: 70%;
+margin: auto;
+}
+.ad-1 button {
+  border-radius: 30px;
+  background-color: red;
+  color: white;
+  padding: 15px;
+}
+
+
+.ad-2{
+  background-color: lightpink;
+  padding: 20px;
+}
+.ad-2 .row{
+  display: flex;
+}
+.ad-2-text {
+  text-align: center;
+}
+.ad-2-text p{
+  width: 70%;
+  margin: auto;
+}
+.ad-2 button {
+  border-radius: 30px;
+  background-color: red;
+  color: white;
+  padding: 15px;
+}
