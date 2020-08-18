@@ -1,3 +1,11 @@
+<label>Server Name</label>
+<!-- The dollar sign event will update the servername -->
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+
+<!-- This is a two way binding -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!-- <p>{{ serverName }}</p> -->
+
 <!-- The disabled is encased in property binding and if it is true, it will disable the
 button tag unless otherwise stated.  -->
 <!-- The click is simple event binding where you have the click directive and will execute
@@ -7,7 +15,17 @@ the following function back to the typescript file -->
 </button>
 <!-- <p [innerText]="allowNewServer"></p> -->
 
-<p>{{ serverCreationStatus }}</p>
-<app-server></app-server>
-<app-server></app-server>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+
+<!-- we can create an if else conditional by writing else to the tag with the same id -->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p>
+<ng-template #noServer>
+  <p>
+    No server was created!
+  </p>
+</ng-template>
+
+
+<app-server *ngFor="let server of servers"></app-server>
+
 <h1>has two server</h1>
