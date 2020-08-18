@@ -1,0 +1,13 @@
+<!-- The disabled is encased in property binding and if it is true, it will disable the
+button tag unless otherwise stated.  -->
+<!-- The click is simple event binding where you have the click directive and will execute
+the following function back to the typescript file -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">
+  Add Server
+</button>
+<!-- <p [innerText]="allowNewServer"></p> -->
+
+<p>{{ serverCreationStatus }}</p>
+<app-server></app-server>
+<app-server></app-server>
+<h1>has two server</h1>
