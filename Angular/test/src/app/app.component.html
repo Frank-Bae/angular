@@ -1,20 +1,79 @@
-<h1>Testing</h1>
+<h1>Basic Syntax</h1>
 
-<h2>One way data binding</h2>
-<p>{{ data1 }}</p>
+<h2>Interpolation</h2>
+Welcome {{name}}
+<p>{{name.length}}</p>
+<p>{{ name.toUpperCase() }}</p>
+<p>{{getInterpolation()}}</p>
 
-<h2>Two way Data binding</h2>
+<h2>Property Binding</h2>
+<input [id]="myId" type="text">
+<input [disabled]="isDisabled" id="{{myId}}" type="text">
 
-<input type="text" [(ngModel)]="data2">
-<p>{{ data2 }}</p>
+<h2>Class Binding</h2>
+<p [class]="successClass">WORKING</p>
+<p class="text-special" [class]="successClass">SUCCESS</p>
+<p [class.text-danger]="hasError">Danger</p>
+<p [ngClass]="messageClasses">CODE</p>
 
-<button (click)="onCreateServer()">Create Server</button>
+<h2>Stlye Binding</h2>
+<p [style.color]="'orange'">Style Binding</p>
+<p [style.color]="hasError ? 'red' : 'green'">Style Binding</p>
+<p [style.color]="highlightColor">Style Binding</p>
+<p [ngStyle]="titleStyles">Style Binding</p>
 
-<p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p>
-<ng-template #noServer>
-  <p>
-    No server was created!
-  </p>
+
+<h2>Event Binding</h2>
+<button (click)="onClick($event)">Greet</button>
+<button (click)="greeting='welcome Frank'">Greet</button>
+{{ greeting }}
+
+
+<h2>Template Reference Variable</h2>
+<input #myInput type="text">
+<button (click)="logMessage(myInput.value)">Log</button>
+<button (click)="logMessage(myInput)">Log</button>
+<router-outlet></router-outlet>
+
+<h2>Two Way Binding</h2>
+<input [(ngModel)]="names" type="text">
+{{ names }}
+
+<h2>Structural Directives</h2>
+
+<h4>ngIf</h4>
+<p *ngIf="displayName; else elseBlock">Code</p>
+<ng-template #elseBlock>
+  <p>Name is Hidden</p>
 </ng-template>
 
-<router-outlet></router-outlet>
+<div *ngIf="displayName; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <p>Code Then</p>
+</ng-template>
+<ng-template #elseBlock>
+  <p>HIdden</p>
+</ng-template>
+
+<h4>ngSwitch</h4>
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'">You picked red color</div>
+  <div *ngSwitchCase="'blue'">You picked blue color</div>
+  <div *ngSwitchCase="'green'">You picked green color</div>
+  <div *ngSwitchDefault>Pick Again</div>
+</div>
+
+<h4>ngFor</h4>
+<div *ngFor="let color of colors; index as i">
+  <h2>{{i}} {{color}}</h2>
+</div>
+<div *ngFor="let color of colors; first as f">
+  <h2>{{f}} {{color}}</h2>
+</div>
+<div *ngFor="let color of colors; last as l">
+  <h2>{{l}} {{color}}</h2>
+</div>
+<div *ngFor="let color of colors; odd as o">
+  <h2>{{o}} {{color}}</h2>
+</div>
