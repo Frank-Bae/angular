@@ -6,6 +6,7 @@
 <div class="play-container">
   <!-- CAll this method when this element is clicked -->
   <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
+  <button (click)="subtractClick()">Subtract</button>
 </div>
 
 <!-- 2 way data binding by both setting and retrieving property to and from component -->
@@ -37,14 +38,14 @@
 
 <!-- This is class binding where it will add in a class so the class "active"
 will activate once the condition is true-->
-<!-- <div class="play-container" [class.active]="clickCounter > 4">
+<div class="play-container" [class.active]="clickCounter > 4">
   <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
     <p>The click counter <strong>Is greater</strong> than 4.</p>
   </ng-template>
   <ng-template #none>
     <p>The click counter is <strong>not greater</strong> than 4</p>
   </ng-template>
-</div> -->
+</div>
 
 <!-- This is multiple class binding -->
 <div class="play-container" [ngClass]="setClasses()">
