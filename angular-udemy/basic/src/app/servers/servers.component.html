@@ -1,3 +1,21 @@
+<label>Server Name</label>
+<!-- The parenthese lets angular know it an event property -->
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<!-- We are using the event target data to retrieve the value property of the input target property
+which is being saved in the serverName and passed to this template-->
+<p>{{ serverName }}</p>
+
+
 <!-- Using component from server component -->
+<!-- Square brakcets let Angular know we want to use property binding, to dynamically bind
+some property. This makes it easier to interact with the DOM. Involves binding
+vallue to DOM properties of HTML elements-->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">
+  Add Server
+</button>
+<!-- <p [innerText]="allowNewServer"></p> -->
+<p>{{ serverCreationStatus }}</p>
+
+
 <app-server></app-server>
 <app-server></app-server>
