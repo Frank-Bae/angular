@@ -9,5 +9,10 @@ import { Component } from '@angular/core';
 
 //These are the classes that you instantiate
 export class ServerComponent {
+  serverId: number = 10;
+  serverStatus: string = 'offline';
 
+  getServerStatus() {
+    return this.serverStatus;
+  }
 }
