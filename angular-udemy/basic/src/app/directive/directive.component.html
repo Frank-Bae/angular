@@ -1,0 +1,13 @@
+<h1>Directives</h1>
+<!-- <button class="btn btn-primary" (click)="showSecret = !showSecret">Display Details</button> -->
+<button class="btn btn-primary" (click)="onToggleDetails()">Display Details</button>
+<p *ngIf="showSecret">The secret password is Ebichu</p>
+
+<!-- This is extracting the index from the ngFor loop. Instead of having to use logItem
+you can indicate logItem to be i  -->
+<div
+*ngFor="let logItem of log; let i = index"
+[ngStyle]="{backgroundColor: i >= 3 ? 'lightblue' : 'lightpink'}"
+[ngClass]="{'white-text': i >= 3}">
+  {{ logItem }}
+</div>
