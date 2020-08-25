@@ -1,0 +1,5 @@
+<p>binding works!</p>
+
+<input type="text" [(ngModel)]="userName">
+<p>{{ userName }}</p>
+<button [disabled]="userName === ''" (click)="userName = ''">reset user</button>

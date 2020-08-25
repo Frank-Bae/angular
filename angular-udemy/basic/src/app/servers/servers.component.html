@@ -5,6 +5,11 @@
 which is being saved in the serverName and passed to this template-->
 <p>{{ serverName }}</p>
 
+<!-- Two way data binding in communcating both the template and the typescript realtime -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<p>{{ serverName }}</p>
+
+
 
 <!-- Using component from server component -->
 <!-- Square brakcets let Angular know we want to use property binding, to dynamically bind
