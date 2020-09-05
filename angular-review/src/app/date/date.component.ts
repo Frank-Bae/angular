@@ -19,7 +19,15 @@ export class DateComponent implements OnInit {
   // The date component instance will have message available
   message: string = new Date().toDateString();
 
-  constructor() { }
+  dateMessage: string;
+
+  constructor() {
+    setInterval(() => {
+      let currentDate = new Date();
+      this.dateMessage = currentDate.toDateString() + ' ' + currentDate.toLocaleTimeString();
+    } , 1000)
+
+  }
 
   ngOnInit(): void {
   }
