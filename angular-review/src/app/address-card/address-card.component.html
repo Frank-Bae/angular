@@ -6,6 +6,10 @@
   <p>{{ user.address }}</p>
   <div>
     <p>Phone:</p>
+    <!-- This is accessing the user object and reiterarting through the
+     phone array of the user property. the ngfor is a directive(an attribute
+     you add to an element, comes with some built in directives nad basically
+     they give more power or extends use of html element) -->
     <p *ngFor="let phoneNumber of user.phone">{{ phoneNumber }}</p>
   </div>
 </div>
