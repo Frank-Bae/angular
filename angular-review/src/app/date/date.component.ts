@@ -20,6 +20,7 @@ export class DateComponent implements OnInit {
   message: string = new Date().toDateString();
 
   dateMessage: string;
+  someNumber: number = 10;
 
   constructor() {
     setInterval(() => {
@@ -30,6 +31,10 @@ export class DateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  addTwoNumbers(a: number, b: number) {
+    return a + b;
   }
 
 }
