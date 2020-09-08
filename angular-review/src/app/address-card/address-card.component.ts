@@ -14,23 +14,12 @@ export class AddressCardComponent implements OnInit {
 
   // This is annotation letting angualr know that userName is an input
   // This Input is a class you import from angular core
-  @Input('user') userObj: User;
-
-  //create a typescript class how the user object should be
-
+  // now that we recieved the instnatition of user, we can pass the variable
+  // name to the decorator of the html file to access that object (4)
+  @Input('user1') userObj: User;
 
   constructor() {
-    // The consturcor immeditely fires when rendered
-    // all this information is being passed to the user variable
-    // this.user = {
-    //   name: this.userName,
-    //   title: 'developer',
-    //   address: '123 denver st, City, State, 29223',
-    //   phone: [
-    //     '122-848-2838',
-    //     '938-293-4503'
-    //   ]
-    // };
+
    }
 
   //  When angualr is done initlaizing that instance, it will try to run
