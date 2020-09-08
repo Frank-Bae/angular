@@ -19,9 +19,22 @@ export class DateComponent implements OnInit {
   // The date component instance will have message available
   message: string = new Date().toDateString();
 
-  constructor() { }
+  dateMessage: string;
+  someNumber: number = 10;
+
+  constructor() {
+    setInterval(() => {
+      let currentDate = new Date();
+      this.dateMessage = currentDate.toDateString() + ' ' + currentDate.toLocaleTimeString();
+    } , 1000)
+
+  }
 
   ngOnInit(): void {
+  }
+
+  addTwoNumbers(a: number, b: number) {
+    return a + b;
   }
 
 }

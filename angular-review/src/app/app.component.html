@@ -1,5 +1,15 @@
 <h1>App Root Component</h1>
-<app-hello-world></app-hello-world>
-<date></date>
+
+<!-- <date></date>-->
+
+ <!-- Passing in value to component this creates an instant of a class-->
+<!-- This lets angular know you want to value from the variable of user -->
+<!-- Remember that in angular, it always reads the ts files first and then the decorator
+Since app component is top of the DOM chain, it will read first, followed by whatever
+child is benath it -->
+<!-- The user1 acts like the prop name in which how input can retrive the user information
+the user information with all its prop is being passed into user1 (3) -->
+<app-address-card [user1]="user"></app-address-card>
+
 
 <router-outlet></router-outlet>
