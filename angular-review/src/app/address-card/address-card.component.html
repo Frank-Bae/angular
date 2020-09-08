@@ -1,17 +1,21 @@
 <p>address-card works!</p>
 
-<div>
-  <h1>{{ userObj.name }}</h1>
-  <h3>{{ userObj.title }}</h3>
-  <p>{{ userObj.address }}</p>
-  <!-- This is another structural directive that check if something is true or not
-  based on the typescript and will render either true or false.  -->
-  <div *ngIf="userObj.phone.length">
-    <p>Phone:</p>
-    <!-- This is accessing the user object and reiterarting through the
-     phone array of the user property. the ngfor is a structural directive
-     that allows the elment to be added, removed, or manipulating and they are
-     identified with an asterisk) -->
-    <p *ngFor="let phoneNumber of userObj.phone">{{ phoneNumber }}</p>
+<div class="address-card">
+  <h1 class="name">{{ userObj.name }}</h1>
+  <h3 class="title">{{ userObj.title }}</h3>
+  <button *ngIf="isCollapsed" (click)="toggleCollapse()">Expand</button>
+  <button *ngIf="!isCollapsed" (click)="toggleCollapse()">Collapse</button>
+  <div *ngIf="!isCollapsed">
+    <p class="address">{{ userObj.address }}</p>
+    <!-- This is another structural directive that check if something is true or not
+      based on the typescript and will render either true or false.  -->
+    <div class="phone" *ngIf="userObj.phone.length">
+      <p>Phone:</p>
+      <!-- This is accessing the user object and reiterarting through the
+         phone array of the user property. the ngfor is a structural directive
+         that allows the elment to be added, removed, or manipulating and they are
+         identified with an asterisk) -->
+      <p *ngFor="let phoneNumber of userObj.phone">{{ phoneNumber }}</p>
+    </div>
   </div>
 </div>

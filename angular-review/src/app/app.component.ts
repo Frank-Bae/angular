@@ -8,11 +8,11 @@ import { User } from './address-card/user.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-review';
 
   //now that it has all the properties and values, it can be passed to a different
   //component, similar to prop. (2)
   user: User;
+  isCollapsed: boolean = true;
 
   constructor() {
     // allowing the user variable to get its blue print or instantiate

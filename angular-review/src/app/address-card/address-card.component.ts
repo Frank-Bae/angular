@@ -17,9 +17,14 @@ export class AddressCardComponent implements OnInit {
   // now that we recieved the instnatition of user, we can pass the variable
   // name to the decorator of the html file to access that object (4)
   @Input('user1') userObj: User;
+  isCollapsed: boolean = true;
 
   constructor() {
 
+   }
+
+   toggleCollapse() {
+     this.isCollapsed = !this.isCollapsed;
    }
 
   //  When angualr is done initlaizing that instance, it will try to run
