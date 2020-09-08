@@ -12,7 +12,7 @@ export class AppComponent {
   //now that it has all the properties and values, it can be passed to a different
   //component, similar to prop. (2)
   user: User;
-  isCollapsed: boolean = true;
+  inputText: string = "Initial value";
 
   constructor() {
     // allowing the user variable to get its blue print or instantiate

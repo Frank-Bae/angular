@@ -9,7 +9,15 @@ Since app component is top of the DOM chain, it will read first, followed by wha
 child is benath it -->
 <!-- The user1 acts like the prop name in which how input can retrive the user information
 the user information with all its prop is being passed into user1 (3) -->
+<!-- the brackets, let angular know that we are not getting the actual string within double quotes -->
 <app-address-card [user1]="user"></app-address-card>
 
+<!-- Achieving two way data binding, need input and bound it by ngModel.
+banana in a box the parenthese and square bracket. The square bracket taking the value
+from the component and show it in the view. Something that happens in the view which will
+execute the function or component. (think of click handler if clicked on view, will trigger something)
+square bracket is one way data flow, the parenthese is another, hence two way-->
+<input type="text" [(ngModel)]="inputText">
+{{ inputText }}
 
 <router-outlet></router-outlet>
