@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { ViewModule } from './view/view.module';
 import { TestService } from './test.service';
 
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +17,8 @@ import { TestService } from './test.service';
     BrowserModule,
     AppRoutingModule,
     //The viewModule allows you to use components from other modules
-    ViewModule
+    ViewModule,
+    HttpClientModule,
   ],
   // the providers is where your services needs to go
   // this service is availale for other components to use since this is the parent

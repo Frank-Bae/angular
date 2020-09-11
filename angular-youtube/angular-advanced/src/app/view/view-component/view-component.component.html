@@ -1,1 +1,17 @@
-<p>view-component works!</p>
+User name: <input type="text" [(ngModel)]="userName">
+<button (click)="search()">Search</button>
+
+<div *ngIf="response">
+  <p>Login Name: {{response.login}}</p>
+  <p>Number of repos: {{response.public_repos}}</p>
+  <p>Number of gists: {{response.public_gists}}</p>
+  <p>Number of followers: {{response.followers}}</p>
+</div>
+
+<!-- this checks to see if response is valid and not undefined
+    if there isn't anything, then an error of undefined will show
+  because it is trying to read what response is when loaded -->
+  <p>Login Name: {{response?.login}}</p>
+  <p>Number of repos: {{response?.public_repos}}</p>
+  <p>Number of gists: {{response?.public_gists}}</p>
+  <p>Number of followers: {{response?.followers}}</p>
