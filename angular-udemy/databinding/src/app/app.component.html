@@ -3,7 +3,9 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement"></app-server-element>
+      <!-- from the ts file, the server array is being passed into the app server element, similar to passing prop -->
+      <!-- The director element allows you to pass the object and its properties. -->
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"></app-server-element>
     </div>
   </div>
 </div>
