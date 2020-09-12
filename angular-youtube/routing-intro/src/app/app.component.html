@@ -1,1 +1,12 @@
+<h1>My App</h1>
+<!-- The router link doesnt do a whole page refresh
+      The bracket tells angular that we want the routerLink to get the
+    value from the type script of homeRoute and settingRoute
+  -->
+<!-- <a [routerLink]="homeRoute">Home</a>
+<a [routerLink]="settingsRoute">Settings</a> -->
+
+
+<!-- The faster way so that we can loop it -->
+<a *ngFor="let route of routes" [routerLink]="route.url">{{route.linkName}}</a>
 <router-outlet></router-outlet>
