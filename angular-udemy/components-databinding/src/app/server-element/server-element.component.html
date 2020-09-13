@@ -1,9 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{ element.name }}</div>
   <div class="panel-body">
-    <p>
-      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+    <!-- This is still a directive even though it looks like an element/component -->
+    <!-- This serves as a hook as it would add any content it finds between the opening and
+    closing tag of the component  -->
+    <ng-content></ng-content>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { asNativeElements, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -12,7 +12,13 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output() bluePrintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   newServerName = '';
-  newServerContent = '';
+  // newServerContent = '';
+
+
+  // ====== LOCAL REFERENCE =======
+  // this will give us access to the dom and we need static true if we plan to use
+  // it in ngOnInit. ElementRef provides us access to the dom.
+  @ViewChild('serverContentInput', {static: true}) serverContentInput: ElementRef;
 
   constructor() { }
 
@@ -22,16 +28,18 @@ export class CockpitComponent implements OnInit {
   // When the click event activates this method, it will grab the output and emit
   // this information to the parent app component
   onAddServer() {
+    console.log(this.serverContentInput)
+    // The this.serverContentInput native element gives us access to the dom
     this.serverCreated.emit({
       serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
   onAddBluePrint() {
     this.bluePrintCreated.emit({
       serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 }

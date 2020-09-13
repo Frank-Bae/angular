@@ -12,7 +12,14 @@
       srvElement directive where it acts like prop, where you can get the value by accessing
       the property of srvElement -->
       <!-- We are inputting the data from the app ts to the server ts -->
-      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"></app-server-element>
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement">
+        <!-- The component would read between the opening and closing tag as it is being outputted to the opening and
+        closing tag.  -->
+        <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        </p>
+      </app-server-element>
     </div>
   </div>
 </div>
