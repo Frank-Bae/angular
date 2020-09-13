@@ -10,7 +10,7 @@ export class CockpitComponent implements OnInit {
   // the view app component of the attribute directive. So whoever has serverCreated
   // will recieve this information
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
-  @Output('bpCreated') bluePrintCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
+  @Output() bluePrintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   newServerName = '';
   newServerContent = '';
 

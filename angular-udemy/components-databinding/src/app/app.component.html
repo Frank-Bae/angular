@@ -3,7 +3,7 @@
   Everytime the child emits an event, the parent callback will be called passing the event -->
   <!-- The serverCreated is recieving the emit and passing its data event in the event paramater
   and onto the onServerAdded method.  -->
-  <app-cockpit (serverCreated)="onServerAdded($event)" (bpCreated)="onBluePrintAdded($event)"></app-cockpit>
+  <app-cockpit (serverCreated)="onServerAdded($event)" (bluePrintCreated)="onBluePrintAdded($event)"></app-cockpit>
   <hr>
   <div class="row">
     <div class="col-xs-12">
