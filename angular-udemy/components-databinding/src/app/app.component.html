@@ -1,8 +1,17 @@
 <div class="container">
-  <app-cockpit (serverCreated)="onServerAdded($event)" (bluePrintCreated)="onBluePrintAdded($event)"></app-cockpit>
+  <!-- This is where the output emits events back to the parent, which passess a callback.
+  Everytime the child emits an event, the parent callback will be called passing the event -->
+  <!-- The serverCreated is recieving the emit and passing its data event in the event paramater
+  and onto the onServerAdded method.  -->
+  <app-cockpit (serverCreated)="onServerAdded($event)" (bpCreated)="onBluePrintAdded($event)"></app-cockpit>
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <!-- Based on the the number of objects within the serverElements array, it will render that
+      many from the app server element. the serverElement will pass the object to the
+      srvElement directive where it acts like prop, where you can get the value by accessing
+      the property of srvElement -->
+      <!-- We are inputting the data from the app ts to the server ts -->
       <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"></app-server-element>
     </div>
   </div>
