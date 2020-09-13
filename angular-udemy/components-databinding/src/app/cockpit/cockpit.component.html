@@ -5,7 +5,8 @@
     <input type="text" class="form-control" [(ngModel)]="newServerName">
     <label>Server Content</label>
     <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
-    <!-- this is accessing the local reference with the #serverContentInput -->
+    <!-- this is accessing the local reference with the #serverContentInput
+    Instead of double way binding, this is local reference fetched through view child -->
     <input type="text" class="form-control" #serverContentInput>
     <br>
     <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
