@@ -7,15 +7,18 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeFirst()">Change first Element</button>
+      <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy first component</button>
       <!-- Based on the the number of objects within the serverElements array, it will render that
       many from the app server element. the serverElement will pass the object to the
       srvElement directive where it acts like prop, where you can get the value by accessing
       the property of srvElement -->
       <!-- We are inputting the data from the app ts to the server ts -->
-      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement">
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement" [name]="serverElement.name">
         <!-- The component would read between the opening and closing tag as it is being outputted to the opening and
         closing tag.  -->
-        <p>
+        <!-- We are creating a reference in the p element and want to use it within the server element -->
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>
