@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 // This is coming from the recipe model ts and has to be the same class name
 import { Recipe } from '../recipe.model'
@@ -9,6 +9,8 @@ import { Recipe } from '../recipe.model'
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+
 
   // This is instantiating a new class from the Recipe model ts which can be used for the template
   // recipes is the name of the property. Recipe[] is a strict way of telling to only
@@ -17,12 +19,16 @@ export class RecipeListComponent implements OnInit {
   // Think of it similar to this.state and consturctor of React.
   recipes: Recipe[] = [
     new Recipe('A Test Recipe', 'this is simply a test', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700%2C636' ),
-    new Recipe('A Test Recipe', 'this is simply a test', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700%2C636')
+    new Recipe('Another Test Recipe', 'this is simply a test', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700%2C636')
   ];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onRecipeSelected(recipe: Recipe) {
+    this.recipeWasSelected.emit(recipe)
   }
 
 }
