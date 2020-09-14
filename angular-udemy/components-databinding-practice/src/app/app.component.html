@@ -1,11 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <!-- This directive is getting the emitting/output intervalFired and passing
+      the data as the $event to the onIntervalFired method as an argument -->
       <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
+      <!-- We are inputting data from the app component ts to the odd component ts.
+      The ngFor will execute if there is length and put whatever data is in oddNumber
+      to the number directive  -->
       <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
       <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
     </div>
