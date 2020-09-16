@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
   messageSendingToChild: string = 'here'
-  list = ['1', '2']
+  numbers: number[] = [1, 2, 3]
 
   constructor() { }
 
