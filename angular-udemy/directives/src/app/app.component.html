@@ -8,6 +8,9 @@
       <br>
       <ul class="list-group">
         <div *ngIf="onlyOdd === false">
+          <!-- If you look carefully, we are grabbing the value from odd because
+          we created a let variable odd that is able to be used within the element,
+          in which all the directives have access. -->
           <li class="list-group-item"
            [ngClass]="{odd: odd % 2 !== 0}"
            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'lightblue'}"
