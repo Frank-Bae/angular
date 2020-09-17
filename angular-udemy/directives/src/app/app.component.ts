@@ -11,15 +11,18 @@ export class AppComponent {
   oddNumbers = [1, 3, 5];
   evenNumbers = [2, 4];
   onlyOdd = false;
-  text = "even"
+  text = "even";
+  value = 5;
 
   changeText() {
     if (this.onlyOdd === false) {
       this.onlyOdd = true
       this.text = "odd"
+      this.value = 10
     } else {
       this.onlyOdd = false
       this.text = "even"
+      this.value = 100
     }
   }
 }

@@ -15,7 +15,16 @@
             {{ odd }}
           </li>
         </div>
-        <div *ngIf="onlyOdd !== false">
+
+        <!-- This is our custom structural directive that mimicks ngif -->
+        <div *appUnless="onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'lightblue'}" *ngFor="let even of evenNumbers">
+            {{ even }}
+          </li>
+        </div>
+
+        <!-- <div *ngIf="onlyOdd !== false">
           <li class="list-group-item"
            [ngClass]="{odd: even % 2 !== 0}"
            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'lightblue'}"
@@ -23,12 +32,36 @@
             >
             {{ even }}
           </li>
-        </div>
+        </div> -->
+        <br>
+        <!-- This shows behind the scenes how structural directives work. The star
+        helps you know that we are using a structural directive for ngIf and ngFor.
+        The star is transforms into a ng-template and the ngIf is a property binding -->
+
+        <!-- <ng-template [ngIf]="onlyOdd !== false">
+          <div>
+            <li class="list-group-item" [ngClass]="{odd: even % 2 !== 0}"
+              [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'lightblue'}" *ngFor="let even of evenNumbers">
+              {{ even }}
+            </li>
+          </div>
+        </ng-template> -->
       </ul>
+
+
+
+
       <br>
       <!-- This appBasicHighlight is coming from the directive file -->
       <p appBasicHighlight>Style me with basic directive!</p>
       <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Style me with a better directive!</p>
+
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
     </div>
   </div>
 </div>

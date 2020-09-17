@@ -7,6 +7,7 @@ export class BetterHighlightDirective implements OnInit {
 
 
   // Having the Renderer2 is the best way of directl accessing the dom
+  // You don't need ElementRef or Renderer2 when using Host
   constructor(private elRef:ElementRef, private renderer : Renderer2) { }
 
   // @Input() defaultColor: string;
