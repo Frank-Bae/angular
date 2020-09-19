@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
   }
 
   // programatically routing to a different page
-  onLoadServers() {
-    this.router.navigate(['/servers']);
+  onLoadServer(id: number) {
+    this.router.navigate(['/servers', id, 'edit'], {queryParams: {allowEdit: '1'}, fragment: 'loading'});
   }
 
 }

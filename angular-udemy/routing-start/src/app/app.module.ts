@@ -20,7 +20,8 @@ const appRoutes: Routes = [
   // This is a dynamic path segment where you can add any number to id
   // The colon indicates that it's dynamic
   { path: 'users/:id/:name', component: UserComponent },
-  { path: 'servers', component: ServersComponent }
+  { path: 'servers', component: ServersComponent },
+  { path: 'servers/:id/edit', component: EditServerComponent }
 ];
 
 @NgModule({
