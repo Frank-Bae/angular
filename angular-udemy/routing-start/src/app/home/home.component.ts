@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// Router has to be imported
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  // must add the variable for router
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  // programatically routing to a different page
+  onLoadServers() {
+    this.router.navigate(['/servers']);
   }
 
 }

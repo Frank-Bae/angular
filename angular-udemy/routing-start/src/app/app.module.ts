@@ -17,6 +17,9 @@ import { ServersService } from './servers/servers.service';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'users', component: UsersComponent },
+  // This is a dynamic path segment where you can add any number to id
+  // The colon indicates that it's dynamic
+  { path: 'users/:id', component: UserComponent },
   { path: 'servers', component: ServersComponent }
 ];
 
