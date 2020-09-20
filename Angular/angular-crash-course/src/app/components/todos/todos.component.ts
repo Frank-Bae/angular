@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Todo } from '../../models/Todos'
 import { TodoService } from '../../services/todo.service'
 
@@ -8,6 +8,8 @@ import { TodoService } from '../../services/todo.service'
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
+  @Output() sendToGrandparent: EventEmitter<Todo> = new EventEmitter();
+
   todos: Todo[];
 
   //The constructor is where you want to initialize your services
@@ -23,5 +25,7 @@ export class TodosComponent implements OnInit {
 
   deleteTodo(todo: Todo) {
     console.log('delete me')
+    this.sendToGrandparent.emit(todo)
+    console.log(todo)
   }
 }
