@@ -1,4 +1,9 @@
 
-<app-todo-item *ngFor="let todo of todos" [todo]="todo">
-
+<!-- Passing the todo data to the todo variable within the todo-item ts file -->
+<app-todo-item
+  *ngFor="let todo of todos"
+  [todo]="todo"
+  (deleteTodo)="deleteTodo($event)">
 </app-todo-item>
+<!-- Emitting or catching the data from the deleteTodo var within the app-todo-item
+and passing that data to this todos ts file component -->

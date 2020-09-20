@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../models/Todos'
+import { TodoService } from '../../services/todo.service'
 
 @Component({
   selector: 'app-todos',
@@ -9,26 +10,18 @@ import { Todo } from '../../models/Todos'
 export class TodosComponent implements OnInit {
   todos: Todo[];
 
-  constructor() { }
+  //The constructor is where you want to initialize your services
+  //We can use todoService anywhere in this class
+  constructor(private todoService: TodoService ) { }
 
+  //You have to subscribe to the observable since it is asynchornus, like promises
   ngOnInit(): void {
-    this.todos = [
-      {
-        id: 1,
-        title: 'Todo One',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Todo Two',
-        completed: false
-      },
-      {
-        id: 3,
-        title: 'Todo Three',
-        completed: false
-      },
-    ]
+    this.todoService.getTodos().subscribe(todos => {
+      this.todos = todos;
+    });
   }
 
+  deleteTodo(todo: Todo) {
+    console.log('delete me')
+  }
 }
