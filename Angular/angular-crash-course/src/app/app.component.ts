@@ -10,7 +10,7 @@ import { Todo } from './models/Todos'
 export class AppComponent {
   title = 'angular-crash-course';
 
-  newTodo;
+  newTodo: Todo;
 
   sendToGrandparent(todo: Todo) {
     console.log('grandparent')
