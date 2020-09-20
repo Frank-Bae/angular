@@ -1,12 +1,12 @@
 <div>
   <app-header></app-header>
-  <app-todos (sendToGrandparent)="sendToGrandparent($event)"></app-todos>
+  <router-outlet></router-outlet>
+
+  <!-- <app-todos (sendToGrandparent)="sendToGrandparent($event)"></app-todos>
 
   <div *ngIf="newTodo">
     <p>Do something {{ newTodo.title }}</p>
-  </div>
+  </div> -->
 
 
 </div>
-
-<router-outlet></router-outlet>
