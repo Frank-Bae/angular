@@ -4,7 +4,8 @@
   <h2>My Heroes</h2>
   <ul class="heroes">
           <!-- click event binding if you click on something gets passed to onselect hero
-          having the let hero gives access to the hero variable for all other attributes-->
+          having the let hero gives access to the hero variable for all other attributes
+          SO all the child elements within li has access to the hero variable-->
     <li [class.selected]="hero === selectedHero" *ngFor="let hero of heroes" (click)="onSelect(hero)">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
