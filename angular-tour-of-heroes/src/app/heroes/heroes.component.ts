@@ -28,6 +28,7 @@ export class HeroesComponent implements OnInit {
   //   this.selectedHero = hero;
   // }
 
+  //void means it shouldn't return anything
   // test(): void {
   //   const test: boolean = this.onSelect(null)
   //   return test
