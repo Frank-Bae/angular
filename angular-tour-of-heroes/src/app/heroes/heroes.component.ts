@@ -19,13 +19,18 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(hero: Hero): boolean {
-    return true
+  onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 
-  test(): void {
-    const test: boolean = this.onSelect(null)
-    return test
-  }
+  // onSelect(hero: Hero): boolean {
+  //   return true
+  //   this.selectedHero = hero;
+  // }
+
+  // test(): void {
+  //   const test: boolean = this.onSelect(null)
+  //   return test
+  // }
+
 }

@@ -11,16 +11,8 @@
     </li>
   </ul>
 
-  <div *ngIf="selectedHero">
-
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedHero.id}}</div>
-    <div>
-      <label>name:
-        <input [(ngModel)]="selectedHero.name" placeholder="name" />
-      </label>
-    </div>
-
-  </div>
+  <!-- one way data binding passing the selectedHero property of the heroes
+  component to the hero property of the app hero detail component -->
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 </div>
