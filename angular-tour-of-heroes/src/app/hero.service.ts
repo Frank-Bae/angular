@@ -6,9 +6,10 @@ import { MessageService } from './message.service';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HeroService {
+  constructor(private messageService: MessageService) {}
 
   // strict typing where it should return an array of the same properties
   getHeroes(): Observable<Hero[]> {
@@ -16,6 +17,4 @@ export class HeroService {
     this.messageService.add('HeroService: fetched heroes');
     return of(HEROES);
   }
-
-  constructor(private messageService: MessageService) { }
 }
