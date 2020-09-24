@@ -28,8 +28,16 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+    const heroObs = this.heroService.getHeroes();
+
+    heroObs.subscribe((data) => {
+      this.heroes = data;
+    });
+
+    // if you want to unsubscribe
+    // const connection = heroObs.subscribe((data) => {
+    //   this.heroes = data;
+    // });
   }
 
   // onSelect(hero: Hero): boolean {
