@@ -9,6 +9,7 @@ import { MessageService } from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
+  // gives you all the access to messageService service
   constructor(public messageService: MessageService) { }
 
   ngOnInit(): void {
