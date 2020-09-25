@@ -15,6 +15,7 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
 
+  // You are declaring access to heroService and messageService
   constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   // call the getHeroes method when initalized
