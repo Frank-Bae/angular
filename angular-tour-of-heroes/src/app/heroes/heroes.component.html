@@ -1,18 +1,24 @@
 <!-- The display a list -->
 <div>
 
-  <h2>My Heroes</h2>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+
+  <!-- <h2>My Heroes</h2>
   <ul class="heroes">
-          <!-- click event binding if you click on something gets passed to onselect hero
-          having the let hero gives access to the hero variable for all other attributes
-          SO all the child elements within li has access to the hero variable-->
     <li [class.selected]="hero === selectedHero" *ngFor="let hero of heroes" (click)="onSelect(hero)">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
-  </ul>
+  </ul> -->
 
   <!-- one way data binding passing the selectedHero property of the heroes
   component to the hero property of the app hero detail component -->
-  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+  <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
 
 </div>

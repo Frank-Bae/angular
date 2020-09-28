@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
+
 
 @Component({
   selector: 'app-heroes',
@@ -16,17 +16,18 @@ export class HeroesComponent implements OnInit {
   selectedHero: Hero;
 
   // You are declaring access to heroService and messageService
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  // private messageService: MessageService
+  constructor(private heroService: HeroService) { }
 
   // call the getHeroes method when initalized
   ngOnInit(): void {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  // }
 
   getHeroes(): void {
     const heroObs = this.heroService.getHeroes();
