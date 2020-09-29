@@ -21,6 +21,8 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`HeroService: fetched hero id=${id}`);
+    // so the find method reutrns the value of the first element in the provided
+    // array that satisfies the provided testing function
     return of(HEROES.find(hero => hero.id === id));
   }
 }
