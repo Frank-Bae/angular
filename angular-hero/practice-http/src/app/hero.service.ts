@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  url = 'https://jsonplaceholder.typicode.com/posts'
+  url = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private messageService: MessageService, private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class HeroService {
 
   getHero(id: number): Observable<Hero> {
     // TODO: send the message _after_ fetching the hero
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return of(HEROES.find(hero => hero.id === id));
+    const url = `${this.url}/${id}`;
+    return this.http.get<Hero>(url);
   }
 }
