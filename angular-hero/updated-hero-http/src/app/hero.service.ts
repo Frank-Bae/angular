@@ -10,7 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
-  private url = 'https://jsonplaceholderabc.typicode.com/posts';
+  private url = 'https://jsonplaceholder.typicode.com/posts';
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
@@ -54,6 +54,9 @@ export class HeroService {
     const url = `${this.url}/${id}`;
     // TODO: send the message _after_ fetching the hero
     // this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return this.http.get<Hero>(url);
+    return this.http.get<Hero>(url).pipe(
+      tap((_) => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
   }
 }
