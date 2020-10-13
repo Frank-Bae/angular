@@ -21,4 +21,14 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes);
   }
+
+  add(title: string): void {
+    title = title.trim();
+    if (!title) { return; }
+    // this title after addHero is object shorthand title: title
+    this.heroService.addHero({ title } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
 }
