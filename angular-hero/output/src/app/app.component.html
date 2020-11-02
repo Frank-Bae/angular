@@ -1,6 +1,0 @@
-<app-item-detail [item]="currentItem"></app-item-detail>
-<!-- Whatever value that is emitted here will go to the parent app component -->
-<app-item-output (newItemEvent)="addItem($event)"></app-item-output>
-<ul>
-  <li *ngFor="let item of items">{{item}}</li>
-</ul>
